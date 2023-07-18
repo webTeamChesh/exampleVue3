@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link
+      href="https://www.cheshireeast.gov.uk/siteelements/css/bs5/100-bootstrap.min.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="https://www.cheshireeast.gov.uk/siteelements/css/bs5/400-cec-styles.css?version=144433"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&amp;family=Open+Sans+Condensed:wght@700&amp;display=swap"
+      rel="stylesheet"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CEC Test</title>
+  </head>
+  <body>
+    <div class="container mt-3" id="app">
+      <my-component :msg="myHeader"></my-component>
+      <p>The heading is a component.</p>
+    </div>
+    <script type="module">
+      import {
+        createApp,
+      } from 'https://unpkg.com/vue@3/dist/vue.esm-browser.js';
+
+      const app = createApp({
+        setup() {
+          return {
+            myHeader: 'Hello Vue3',
+          };
+        },
+      });
+
+      // Define a component.
+      app.component('my-component', {
+        props: ['msg'],
+        template: '<h1>{{this.msg}}</h1>',
+      });
+      // Mount the app.
+      app.mount('#app');
+    </script>
+
+    <script src="https://www.cheshireeast.gov.uk/SiteElements/js/bs5/bootstrap.bundle.min.js?build=153195"></script>
+  </body>
+</html>
