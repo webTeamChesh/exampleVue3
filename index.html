@@ -21,11 +21,13 @@
   </head>
   <body>
     <div class="container mt-3" id="app">
-      <my-header :msg="mainHeading"></my-header>
-      <p>The heading is a component, which receives a prop.</p>
+      <div>
+        <my-header :msg="mainHeading"></my-header>
+        <p>The heading is a component, which receives a prop.</p>
+      </div>
     </div>
 
-    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.prod.js"></script>
     <script>
       // Create a component
       const myHeader = {
