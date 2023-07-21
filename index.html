@@ -21,29 +21,32 @@
   </head>
   <body>
     <div class="container mt-3" id="app">
-      <my-component :msg="myHeader"></my-component>
-      <p>The heading is a component.</p>
+      <my-header :msg="mainHeading"></my-header>
+      <p>The heading is a component, which receives a prop.</p>
     </div>
-    <script type="module">
-      import {
-        createApp,
-      } from 'https://unpkg.com/vue@3/dist/vue.esm-browser.js';
 
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script>
+      // Create a component
+      const myHeader = {
+        props: ['msg'],
+        template: '<div><h1>{{msg}}</h1></div>',
+      };
+
+      // Bring in the createApp method.
+      const { createApp } = Vue;
+
+      // Create the app and register the component.
       const app = createApp({
-        setup() {
+        components: {
+          myHeader,
+        },
+        data() {
           return {
-            myHeader: 'Hello Vue3',
+            mainHeading: 'Hello Vue 3!',
           };
         },
-      });
-
-      // Define a component.
-      app.component('my-component', {
-        props: ['msg'],
-        template: '<h1>{{this.msg}}</h1>',
-      });
-      // Mount the app.
-      app.mount('#app');
+      }).mount('#app');
     </script>
 
     <script src="https://www.cheshireeast.gov.uk/SiteElements/js/bs5/bootstrap.bundle.min.js?build=153195"></script>
